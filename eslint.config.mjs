@@ -24,6 +24,7 @@ export default [
       'default-case': 'off',
       'sort-keys': 'off',
       'sort-vars': 'off',
+      'func-style': 'off',
       'max-lines-per-function': 'off',
       'function-paren-newline': 'off',
       'consistent-return': 'off',
