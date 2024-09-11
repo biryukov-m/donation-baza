@@ -13,7 +13,7 @@
     "type-check": "tsc --noEmit",
     "db:push": "drizzle-kit push --config=drizzle.config.ts",
     "studio": "drizzle-kit studio",
-    "prepare": "husky init"
+    "prepare": "husky"
   },
   "dependencies": {
     "@lucia-auth/adapter-drizzle": "^1.1.0",
