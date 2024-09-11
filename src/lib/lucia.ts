@@ -1,12 +1,12 @@
 import { Lucia } from 'lucia';
 import { adapter } from './adapter';
-import { cookies } from 'next/headers';
 import { cache } from 'react';
+import { cookies } from 'next/headers';
 
 export const lucia = new Lucia(adapter, {
   sessionCookie: {
     attributes: {
-      // set to `true` when using HTTPS
+      // Set to `true` when using HTTPS
       secure: process.env.NODE_ENV === 'production',
     },
   },
