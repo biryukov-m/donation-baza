@@ -10,10 +10,12 @@ export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.all,
   ...tseslint.configs.recommended,
+
   pluginReact.configs.flat.recommended,
   {
     rules: {
       'object-curly-newline': 'off',
+      'new-cap': 'off',
       'no-param-reassign': 'off',
       'no-prototype-builtins': 'off',
       'operator-linebreak': 'off',
@@ -24,6 +26,7 @@ export default [
       'default-case': 'off',
       'sort-keys': 'off',
       'sort-vars': 'off',
+      'func-style': 'off',
       'max-lines-per-function': 'off',
       'function-paren-newline': 'off',
       'consistent-return': 'off',
