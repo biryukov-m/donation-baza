@@ -1,19 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { db } from '@/db/db';
+import { db } from '@/lib/db/db';
 import { eq } from 'drizzle-orm';
-import { users } from '@/db/schema';
-import { v4 as uuidv4 } from 'uuid';
+import { generateIdFromEntropySize } from 'lucia';
+import { users } from '@/lib/db/schema';
 
 export async function POST(request: NextRequest) {
-  const { email, password } = await request.json();
+  const { username, password } = await request.json();
 
   try {
-    if (!email || !password)
+    if (!username || !password)
       return NextResponse.json({ message: 'Bad Credentials' }, { status: 422 });
 
     const existingUser = await db.query.users.findFirst({
-      where: eq(users.email, email),
+      where: eq(users.username, username),
     });
 
     if (existingUser)
@@ -22,14 +22,13 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
 
-    const salt = 10;
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const hashedPassword = await bcrypt.hash(password, 13);
 
     const user = await db
       .insert(users)
       .values({
-        id: uuidv4(),
-        email,
+        id: generateIdFromEntropySize(10),
+        username,
         password: hashedPassword,
       })
       .returning();
