@@ -10,19 +10,10 @@
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "format": "prettier --write '*/**/*.{js,jsx,ts,tsx,json,css,md}'",
     "ts-check": "tsc --project tsconfig.json --pretty --noEmit && echo",
+    "type-check": "tsc --noEmit",
     "db:push": "drizzle-kit push --config=drizzle.config.ts",
-    "studio": "drizzle-kit studio"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.(js|jsx)": [
-      "npm run lint:fix",
-      "git add"
-    ]
+    "studio": "drizzle-kit studio",
+    "prepare": "husky"
   },
   "dependencies": {
     "@lucia-auth/adapter-drizzle": "^1.1.0",
@@ -38,6 +29,8 @@
     "sass": "^1.78.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.10.0",
     "@types/bcryptjs": "^2.4.6",
