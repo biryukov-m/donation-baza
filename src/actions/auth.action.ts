@@ -1,11 +1,11 @@
 'use server';
 
+import { lucia, validateRequest } from '@/lib/lucia';
 import { ILoginData } from '@/types/common.types';
 import bcrypt from 'bcryptjs';
 import { cookies } from 'next/headers';
 import { db } from '@/lib/db/db';
 import { eq } from 'drizzle-orm';
-import { lucia, validateRequest } from '@/lib/lucia';
 
 export const signIn = async (values: ILoginData) => {
   try {
@@ -51,10 +51,8 @@ export const signIn = async (values: ILoginData) => {
     return {
       success: 'Logged in successfully',
     };
-  } catch (error: any) {
-    return {
-      error: error.message,
-    };
+  } catch (error: unknown) {
+    return error instanceof Error ? { error: error.message } : { error };
   }
 };
 
@@ -77,9 +75,7 @@ export const signOut = async () => {
       sessionCookie.value,
       sessionCookie.attributes
     );
-  } catch (error: any) {
-    return {
-      error: error?.message,
-    };
+  } catch (error: unknown) {
+    return error instanceof Error ? { error: error.message } : { error };
   }
 };
