@@ -49,7 +49,8 @@ export const signIn = async (values: ILoginData) => {
     );
 
     return {
-      success: 'Logged in successfully',
+      success: true,
+      message: 'Logged in successfully',
     };
   } catch (error: unknown) {
     return error instanceof Error ? { error: error.message } : { error };
