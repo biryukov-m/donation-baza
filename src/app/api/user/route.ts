@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import { db } from '@/lib/db/db';
 import { eq } from 'drizzle-orm';
 import { generateIdFromEntropySize } from 'lucia';
-import { users } from '@/lib/db/schema';
+import users from '@/lib/db/schema/user';
 
 export async function POST(request: NextRequest) {
   const { username, password } = await request.json();

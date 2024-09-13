@@ -6,7 +6,6 @@ import { cookies } from 'next/headers';
 export const lucia = new Lucia(adapter, {
   sessionCookie: {
     attributes: {
-      // Set to `true` when using HTTPS
       secure: process.env.NODE_ENV === 'production',
     },
   },

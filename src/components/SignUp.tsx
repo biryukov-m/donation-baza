@@ -17,13 +17,13 @@ const SignUp = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="form">
         <input
           {...register('username', {
-            required: 'Введіть дійсну електронну адресу',
+            required: 'Це поле є обов’язковим',
           })}
         />
         <input
           type="text"
           {...register('password', {
-            required: 'Введіть дійсну електронну адресу',
+            required: 'Це поле є обов’язковим',
           })}
         />
 
