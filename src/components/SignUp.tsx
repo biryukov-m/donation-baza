@@ -1,7 +1,7 @@
 'use client';
 
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { signIn, signOut } from '@/actions/auth.action';
+import { signIn, signOut } from '@/utils/actions/auth.action';
 import { ILoginData } from '@/types/common.types';
 
 const SignUp = () => {
