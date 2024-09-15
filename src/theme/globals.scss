@@ -25,6 +25,7 @@ h6 {
 p {
   margin-bottom: $spacing-unit;
 }
+
 .form {
   height: 50vh;
   display: flex;
@@ -32,4 +33,11 @@ p {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

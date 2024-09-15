@@ -1,6 +1,7 @@
 import esLintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 import pluginJs from '@eslint/js';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 import pluginReact from 'eslint-plugin-react';
 import tseslint from 'typescript-eslint';
 
@@ -10,6 +11,7 @@ export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.all,
   ...tseslint.configs.recommended,
+  ...pluginQuery.configs['flat/recommended'],
 
   pluginReact.configs.flat.recommended,
   {
