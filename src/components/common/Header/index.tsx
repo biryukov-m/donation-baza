@@ -7,7 +7,7 @@ const Header: React.FC = () => {
       Header
       <nav>
         <ul>
-          <li>
+          <li className={styles.link}>
             <a href="/">header link</a>
           </li>
         </ul>
