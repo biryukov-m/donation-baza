@@ -4,6 +4,7 @@ import Header from '@/components/common/Header';
 import type { Metadata } from 'next';
 import QueryClientProvider from '@/components/providers/QueryClientProvider';
 import React from 'react';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { fonts } from '@/theme/fonts';
 
 export const metadata: Metadata = {
@@ -23,7 +24,11 @@ export default function RootLayout({
     >
       <body>
         <Header />
-        <QueryClientProvider>{children}</QueryClientProvider>
+        <QueryClientProvider>
+          {children}
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+
         <Footer />
       </body>
     </html>
