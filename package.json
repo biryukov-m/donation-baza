@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx} \" --fix",
+    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
     "format": "prettier --write '*/**/*.{js,jsx,ts,tsx,json,css,md}'",
     "ts-check": "tsc --project tsconfig.json --pretty --noEmit && echo",
     "type-check": "tsc --noEmit",
